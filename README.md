@@ -1,1 +1,1 @@
-# -SNS_Django
+# SNS_Django
