@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticataed %}
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>title:<input type="text" name="title"></p>
+    <p>content:<input type="text" name="content"></p>
+    <p><input type="file" name="snsimg"></p>
+    <input type="hidden" name="author" value="{{ user.username }}">
+    <input type="submit" value="create">
+    </form>
+    {% else %}
+        Please login
+    {% endif %}
+{% endblock content %}
