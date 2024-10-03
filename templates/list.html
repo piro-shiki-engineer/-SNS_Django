@@ -9,12 +9,12 @@
 
 {% block content %}
 <div class="container">
-    {% for item in object_list %}
+    {% for object in object_list %}
     <div class="alert alert-success" role="alert">
-        <p>タイトル : <a href="{% url 'detail' item.pk %}">{{ item.title }}</a></p>
-        <p>投稿者 : {{ item.author }}</p>
-        <a href="#" class="btn btn-primary" role="button" aria-pressed="true">Primary link</a>
-        <a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Link</a>
+        <p>タイトル : <a href="{% url 'detail' object.pk %}">{{ object.title }}</a></p>
+        <p>投稿者 : {{ object.author }}</p>
+        <a href="{% url 'good' object.pk %}" class="btn btn-primary disabled" role="button" aria-pressed="true">いいね{{ object.good }}件</a>
+        <a href="#" class="btn btn-secondary disabled" role="button" aria-pressed="true">既読{{ object.read }}件</a>
     </div>
     {% endfor %}
     <a href="{% url 'logout' %}">Logout</a>

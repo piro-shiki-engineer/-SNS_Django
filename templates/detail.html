@@ -15,8 +15,8 @@
         {% if object.snsimg%}
             <p><img src="{{ object.snsimg.url }}" width=300></p>
         {% endif %}
-        <a href="#" class="btn btn-primary" role="button" aria-pressed="true">いいね</a>
-        <a href="#" class="btn btn-secondary" role="button" aria-pressed="true">既読</a>
+        <a href="{% url 'good' object.pk %}" class="btn btn-primary" role="button" aria-pressed="true">いいね</a>
+        <a href="{% url 'read' object.pk %}" class="btn btn-secondary" role="button" aria-pressed="true">既読</a>
     </div>
     <a href="{% url 'list' %}">一覧へ</a>
 </div>
