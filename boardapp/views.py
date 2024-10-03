@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 from .models import Board_Model
+from django.contrib.auth.decorators import login_required
+
 
 def signup_func(request):
     if request.method == "POST":
@@ -26,14 +28,14 @@ def login_func(request):
 
         if user is not None:
             login(request, user)
-            return render(request, 'login.html', {'context': 'Logged in'})
+            return redirect('list')
         else:
-            return render(request, 'login.html', {'context': 'Not Logged in'})
+            return render(request, 'login.html', {})
 
     # ここではgetの場合
-    return render(request, 'login.html', {'context': ''})
+    return render(request, 'login.html', {})
 
-
+@login_required
 def list_func(request):
     object_list = Board_Model.objects.all()
     return render(request, 'list.html', {'object_list': object_list})

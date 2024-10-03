@@ -125,3 +125,5 @@ STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 
 MEDIA_ROOT = BASE_DIR / 'media/'
 MEDIA_URL = 'medi/'
+
+LOGIN_URL = 'login'
